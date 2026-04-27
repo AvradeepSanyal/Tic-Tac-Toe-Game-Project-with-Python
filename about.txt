@@ -1,0 +1,51 @@
+#UPDATE THIS CODE TO CLASS OR MORE LATER and tictactoe with AI
+
+FLOW OF PROGRAM IN HERE AND IN LINE 82 TO 90 :
+printing the game board
+take player input
+check win or tie or loss
+switch player
+then check for win and tie or loss 
+
+line 4 to 6: This is the Tic-Tac-Toe board with 9 positions (index 0–8)
+Each "-" means the spot is empty, Example: If player puts X at position 1 
+→ board becomes ["X","-","-","-","-","-","-","-","-"]
+
+line 7 to 9: First player is always "X", Stores the winner once someone wins
+coz of the default start as winner is none, as game didnt start yet, and X will
+be default player at start, and gamerunning is true as it Controls the game loop. 
+As long as it’s True, the game continues.
+
+line 4 to 18: displays the board in 3x3 grid
+
+line 24 to 27: Player chooses a position (1–9), inp-1 converts human input (1–9) to Python index (0–8)
+If spot is empty ("-"), place current player’s symbol, Example: Player enters 5 → board[4] = "X".
+the logic of the conditional statement ensures players input is atleast 1 and is at most 9 and board[inp-1] == "-"
+checks if chosen spot is empty and if all of this is true (as AND operator is used) it puts currentplayer or 
+its value X or O whatever it is in board[index] by doing inp-1
+
+line 31 to 37: Horizontal check. board[0] == board[1] == board[2] → checks if top row has same symbol, and board[0]
+ != "-" → ensures it’s not empty (example- board[0] != "-" → True ("X" != "-").) and when all of its is true 
+ (as AND operator is used) then winner is currentplayer or its value X or O but (as all the horizontak 
+ rows are checked and OR is used as this states if anyone of them is true among all the hori rows it returns the value)
+
+
+line 39 to 45: vertical check. Same meaning as horizontal check but here all is vertically.
+
+line 47 to 52: diagonal check. same as well as horizontal and vertical but here its diagonal.
+
+line 54 to 59: " - " not in board → means no empty spots left,
+Example: ["X","O","X","O","X","O","X","O","X"] → True (board full)
+If even one "-" exists, condition fails, If True → game ends with "Its a tie"
+
+line 61 to 63: Calls all win-check functions, If any return True, prints the winner.
+
+line 67 to 72: Alternates between "X" and "O", Example: If currentplayer = "X", after function → "O".
+
+line 74 to 79: while currentplayer == "O":Runs only when it’s computer’s turn, position = random.randint(0, 8) 
+Picks a random index (0–8)Example: Could pick 3 → means board[3], if board[position] == "-":
+Checks if that spot is empty.Example: If board[3] = "-", condition passes, board[position] = "0".Places computer’s symbol.
+Example: If position = 3 → board[3] = "O", switchplayer(). Changes turn back to human.
+
+here whenever a global variable like this called like currentplayer, or gamerunning is called from global frame
+to local frame or funcs is for use purpose as some varible exist for that particular frame only
